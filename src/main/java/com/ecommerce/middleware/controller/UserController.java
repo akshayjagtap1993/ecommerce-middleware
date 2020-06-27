@@ -1,5 +1,6 @@
 package com.ecommerce.middleware.controller;
 
+import com.ecommerce.middleware.dto.RestApiResponse;
 import com.ecommerce.middleware.pojo.User;
 import com.ecommerce.middleware.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class UserController {
     }
 
     @GetMapping(value = "/user")
-    public List<User> getAllUsers(){
-        return (List<User>) userRepository.findAll();
+    public RestApiResponse getAllUsers(){
+        return new RestApiResponse ("success", userRepository.findAll(), "all users fetched");
     }
 }
