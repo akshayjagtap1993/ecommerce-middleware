@@ -1,8 +1,8 @@
 package com.ecommerce.middleware.security;
 
 import com.ecommerce.middleware.dto.RestApiResponse;
-import com.ecommerce.middleware.pojo.User;
-import com.ecommerce.middleware.repository.UserRepository;
+import com.ecommerce.middleware.pojo.UserCredential;
+import com.ecommerce.middleware.repository.UserCredentialRepository;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 public class LoginController {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserCredentialRepository userCredentialRepository;
 
     @PostMapping(value = "/login")
     public RestApiResponse login(@RequestBody Map<String, Object> request){
@@ -30,8 +30,8 @@ public class LoginController {
         String password = (String) request.get("password");
         System.out.println("username -> " + username);
 
-        User fetchedUser = userRepository.findByEmailId(username);
-        if(fetchedUser == null || !fetchedUser.getPassword().equals(password)) {
+        UserCredential fetchedUserCred = userCredentialRepository.findByEmailId(username);
+        if(fetchedUserCred == null || !fetchedUserCred.getPassword().equals(password)) {
             return new RestApiResponse("failure", null, "Please check username or password");
         }
 
