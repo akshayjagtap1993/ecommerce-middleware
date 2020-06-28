@@ -31,7 +31,8 @@ public class LoginController {
         System.out.println("username -> " + username);
 
         UserCredential fetchedUserCred = userCredentialRepository.findByEmailId(username);
-        if(fetchedUserCred == null || !fetchedUserCred.getPassword().equals(password)) {
+        String decryptedPassword = PasswordEncryption.decrypt(fetchedUserCred.getPassword());
+        if(fetchedUserCred == null || !password.equals(decryptedPassword)) {
             return new RestApiResponse("failure", null, "Please check username or password");
         }
 
