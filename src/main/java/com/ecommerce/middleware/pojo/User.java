@@ -14,7 +14,6 @@ public class User {
     private String fullName;
     private LocalDate dateOfBirth;
     private String emailId;
-    private String password;
     private boolean isAdmin;
 
     public int getUserId() {
@@ -47,14 +46,6 @@ public class User {
 
     public void setEmailId(String emailId) {
         this.emailId = emailId;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public boolean isAdmin() {

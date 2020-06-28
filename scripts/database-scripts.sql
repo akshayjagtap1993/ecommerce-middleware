@@ -5,6 +5,7 @@
 --drop table product;
 --drop table before_order_type;
 --drop table before_order;
+--drop table user_credential;
 --drop table user;
 
 create table user(
@@ -12,7 +13,6 @@ create table user(
 	full_name varchar(50) not null,
 	date_of_birth date not null,
 	email_id varchar(50) not null,
-	password varchar(100) not null,
 	is_admin boolean not null default false
 );
 /*insert into `user`(full_name, date_of_birth, email_id, password, is_admin)
@@ -25,6 +25,13 @@ create table address(
     city varchar(50),
     state varchar(50),
     zip varchar(6) not null,
+    foreign key (user_id) references user(user_id)
+);
+
+create table user_credential(
+    user_credentials_id int primary key AUTO_INCREMENT,
+    user_id int not null,
+    password varchar(100) not null,
     foreign key (user_id) references user(user_id)
 );
 
