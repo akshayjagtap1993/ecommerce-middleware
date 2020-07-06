@@ -15,6 +15,17 @@ public class User {
     private LocalDate dateOfBirth;
     private String emailId;
     private boolean isAdmin;
+    private String address;
+
+    public User() {
+    }
+
+    public User(String fullName, LocalDate dateOfBirth, String emailId, boolean isAdmin) {
+        this.fullName = fullName;
+        this.dateOfBirth = dateOfBirth;
+        this.emailId = emailId;
+        this.isAdmin = isAdmin;
+    }
 
     public int getUserId() {
         return userId;
@@ -54,5 +65,13 @@ public class User {
 
     public void setAdmin(boolean admin) {
         isAdmin = admin;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

@@ -1,20 +1,18 @@
-package com.ecommerce.middleware.pojo;
+package com.ecommerce.middleware.dto;
 
-import javax.persistence.*;
+import com.ecommerce.middleware.pojo.User;
+import com.ecommerce.middleware.utils.CustomLocalDateTimeSerializer;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import java.time.LocalDateTime;
 
-@Entity(name = "user_order")
-public class UserOrder {
+public class UserOrderDto {
 
-    @Id
-    @GeneratedValue
     private int userOrderId;
-    @ManyToOne
-    @JoinColumn(name = "user_id")
     private User user;
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
+    private ProductDto product;
+    @JsonSerialize(using = CustomLocalDateTimeSerializer.class)
     private LocalDateTime orderDate;
     private String status;
 
@@ -34,11 +32,11 @@ public class UserOrder {
         this.user = user;
     }
 
-    public Product getProduct() {
+    public ProductDto getProduct() {
         return product;
     }
 
-    public void setProduct(Product product) {
+    public void setProduct(ProductDto product) {
         this.product = product;
     }
 

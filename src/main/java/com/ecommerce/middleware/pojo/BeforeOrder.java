@@ -14,10 +14,11 @@ public class BeforeOrder {
     private User user;
     @ManyToOne
     @JoinColumn(name = "product_id")
-    private Product productId;
-    @ManyToOne
-    @JoinColumn(name = "before_order_type_id")
-    private BeforeOrderType beforeOrderType;
+    private Product product;
+//    @ManyToOne
+//    @JoinColumn(name = "before_order_type_id")
+//    private BeforeOrderType beforeOrderType;
+    private String beforeOrderType;
     private LocalDateTime orderDate;
 
     public int getBeforeOrderId() {
@@ -36,20 +37,12 @@ public class BeforeOrder {
         this.user = user;
     }
 
-    public Product getProductId() {
-        return productId;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setProductId(Product productId) {
-        this.productId = productId;
-    }
-
-    public BeforeOrderType getBeforeOrderType() {
-        return beforeOrderType;
-    }
-
-    public void setBeforeOrderType(BeforeOrderType beforeOrderType) {
-        this.beforeOrderType = beforeOrderType;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public LocalDateTime getOrderDate() {
@@ -58,5 +51,13 @@ public class BeforeOrder {
 
     public void setOrderDate(LocalDateTime orderDate) {
         this.orderDate = orderDate;
+    }
+
+    public String getBeforeOrderType() {
+        return beforeOrderType;
+    }
+
+    public void setBeforeOrderType(String beforeOrderType) {
+        this.beforeOrderType = beforeOrderType;
     }
 }

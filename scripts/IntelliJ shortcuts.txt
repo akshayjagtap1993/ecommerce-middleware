@@ -1,0 +1,41 @@
+Ctrl+E
+To open recent opened files.
+
+Ctrl+Shift+E
+To open recent opened files with code.
+
+Ctrl+Shift+F
+Search anywhere in project
+
+double Shift -> Search for all
+Ctrl+N -> Search for classes
+Ctrl+Shift+N -> Search for any files
+Ctrl+Shift+Alt+N -> Search for methods
+
+Ctrl+G
+Jump to line
+
+Alt+UP/DOWN
+To navigate to next/prev method
+
+Alt+Left/Right
+To navigate to prev/next location
+
+Ctrl+Alt+Left/Right
+To navigate to prev/next file
+
+Ctrl+O
+Show all methods
+
+Alt+1
+Open/close Project navigation window
+
+Alt+5
+Open/close console
+
+Alt+9
+Open/close git explorer
+
+Ctrl+Alt+T
+Wrap selected code block in if/else/while/try/catch etc
+

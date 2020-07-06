@@ -1,27 +1,16 @@
-package com.ecommerce.middleware.pojo;
+package com.ecommerce.middleware.dto;
 
-import com.ecommerce.middleware.utils.CustomBlobSerializer;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.sql.Blob;
 
-@Entity(name = "product")
-public class Product {
-
-    @Id
-    @GeneratedValue
+public class ProductDto {
     private int productId;
     private String productName;
     private String description;
     private String owner;
     private BigDecimal price;
     private BigDecimal discountedPrice;
-    @JsonSerialize(using = CustomBlobSerializer.class)
-    private Blob image;
+    private String image;
     private int quantity;
 
     public int getProductId() {
@@ -56,14 +45,6 @@ public class Product {
         this.owner = owner;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
     public BigDecimal getPrice() {
         return price;
     }
@@ -80,11 +61,19 @@ public class Product {
         this.discountedPrice = discountedPrice;
     }
 
-    public Blob getImage() {
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getImage() {
         return image;
     }
 
-    public void setImage(Blob image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }
